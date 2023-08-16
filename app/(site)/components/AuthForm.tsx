@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import Button from "@/app/components/Inputs/Button";
 import Input from "@/app/components/Inputs/Input";
 import { useCallback, useState } from "react";
@@ -35,7 +36,7 @@ const AuthForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
     if (variant === "REGISTER") {
-      // Axios Register
+      axios.post("/api/register", data);
     }
     if (variant === "LOGIN") {
       // NextAuth SignIn
